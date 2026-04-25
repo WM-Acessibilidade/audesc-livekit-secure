@@ -90,7 +90,7 @@ function getTokenTtlSeconds(event, pkg, isAdmin) {
   return Math.min(ttl, 8 * 60 * 60);
 }
 
-function makeToken(room, identity, role, ttlSeconds) {
+async function makeToken(room, identity, role, ttlSeconds) {
   if (!LIVEKIT_API_KEY || !LIVEKIT_API_SECRET) {
     throw new Error('LIVEKIT_API_KEY e LIVEKIT_API_SECRET precisam estar configurados.');
   }
@@ -110,10 +110,10 @@ function makeToken(room, identity, role, ttlSeconds) {
     canPublishData: true
   });
 
-  return at.toJwt();
+  return await at.toJwt();
 }
 
-app.get('/token', (req, res) => {
+app.get('/token', async (req, res) => {
   try {
     const config = loadConfig();
 
@@ -128,7 +128,7 @@ app.get('/token', (req, res) => {
       const room = roomFromQuery || 'audesc-admin';
       const ttlSeconds = 8 * 60 * 60;
       return res.json({
-        token: makeToken(room, identity, role, ttlSeconds),
+        token: await makeToken(room, identity, role, ttlSeconds),
         room,
         identity,
         role,
@@ -147,7 +147,7 @@ app.get('/token', (req, res) => {
       const room = roomFromQuery || 'audesc-livre';
       const ttlSeconds = 60 * 60;
       return res.json({
-        token: makeToken(room, identity, role, ttlSeconds),
+        token: await makeToken(room, identity, role, ttlSeconds),
         room,
         identity,
         role,
@@ -177,7 +177,7 @@ app.get('/token', (req, res) => {
     const ttlSeconds = getTokenTtlSeconds(event, pkg, false);
 
     return res.json({
-      token: makeToken(room, identity, role, ttlSeconds),
+      token: await makeToken(room, identity, role, ttlSeconds),
       room,
       identity,
       role,
@@ -197,7 +197,7 @@ app.get('/token', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-  res.json({ ok: true, service: 'audesc-livekit-server-controlado' });
+  res.json({ ok: true, service: 'audesc-livekit-server-controlado', version: 'v2-async-token' });
 });
 
 app.get('/config-publica', (req, res) => {
