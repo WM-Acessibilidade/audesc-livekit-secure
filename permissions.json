@@ -1,0 +1,419 @@
+{
+  "senhaGeral": "AUDESC-ADMIN",
+  "permitirSemSenha": true,
+  "valorPorOuvinteHora": 10,
+  "pacotes": [
+    {
+      "id": "P10H1",
+      "maxOuvintes": 10,
+      "horas": 1
+    },
+    {
+      "id": "P10H2",
+      "maxOuvintes": 10,
+      "horas": 2
+    },
+    {
+      "id": "P10H3",
+      "maxOuvintes": 10,
+      "horas": 3
+    },
+    {
+      "id": "P10H4",
+      "maxOuvintes": 10,
+      "horas": 4
+    },
+    {
+      "id": "P10H5",
+      "maxOuvintes": 10,
+      "horas": 5
+    },
+    {
+      "id": "P10H6",
+      "maxOuvintes": 10,
+      "horas": 6
+    },
+    {
+      "id": "P10H7",
+      "maxOuvintes": 10,
+      "horas": 7
+    },
+    {
+      "id": "P10H8",
+      "maxOuvintes": 10,
+      "horas": 8
+    },
+    {
+      "id": "P20H1",
+      "maxOuvintes": 20,
+      "horas": 1
+    },
+    {
+      "id": "P20H2",
+      "maxOuvintes": 20,
+      "horas": 2
+    },
+    {
+      "id": "P20H3",
+      "maxOuvintes": 20,
+      "horas": 3
+    },
+    {
+      "id": "P20H4",
+      "maxOuvintes": 20,
+      "horas": 4
+    },
+    {
+      "id": "P20H5",
+      "maxOuvintes": 20,
+      "horas": 5
+    },
+    {
+      "id": "P20H6",
+      "maxOuvintes": 20,
+      "horas": 6
+    },
+    {
+      "id": "P20H7",
+      "maxOuvintes": 20,
+      "horas": 7
+    },
+    {
+      "id": "P20H8",
+      "maxOuvintes": 20,
+      "horas": 8
+    },
+    {
+      "id": "P30H1",
+      "maxOuvintes": 30,
+      "horas": 1
+    },
+    {
+      "id": "P30H2",
+      "maxOuvintes": 30,
+      "horas": 2
+    },
+    {
+      "id": "P30H3",
+      "maxOuvintes": 30,
+      "horas": 3
+    },
+    {
+      "id": "P30H4",
+      "maxOuvintes": 30,
+      "horas": 4
+    },
+    {
+      "id": "P30H5",
+      "maxOuvintes": 30,
+      "horas": 5
+    },
+    {
+      "id": "P30H6",
+      "maxOuvintes": 30,
+      "horas": 6
+    },
+    {
+      "id": "P30H7",
+      "maxOuvintes": 30,
+      "horas": 7
+    },
+    {
+      "id": "P30H8",
+      "maxOuvintes": 30,
+      "horas": 8
+    },
+    {
+      "id": "P40H1",
+      "maxOuvintes": 40,
+      "horas": 1
+    },
+    {
+      "id": "P40H2",
+      "maxOuvintes": 40,
+      "horas": 2
+    },
+    {
+      "id": "P40H3",
+      "maxOuvintes": 40,
+      "horas": 3
+    },
+    {
+      "id": "P40H4",
+      "maxOuvintes": 40,
+      "horas": 4
+    },
+    {
+      "id": "P40H5",
+      "maxOuvintes": 40,
+      "horas": 5
+    },
+    {
+      "id": "P40H6",
+      "maxOuvintes": 40,
+      "horas": 6
+    },
+    {
+      "id": "P40H7",
+      "maxOuvintes": 40,
+      "horas": 7
+    },
+    {
+      "id": "P40H8",
+      "maxOuvintes": 40,
+      "horas": 8
+    },
+    {
+      "id": "P50H1",
+      "maxOuvintes": 50,
+      "horas": 1
+    },
+    {
+      "id": "P50H2",
+      "maxOuvintes": 50,
+      "horas": 2
+    },
+    {
+      "id": "P50H3",
+      "maxOuvintes": 50,
+      "horas": 3
+    },
+    {
+      "id": "P50H4",
+      "maxOuvintes": 50,
+      "horas": 4
+    },
+    {
+      "id": "P50H5",
+      "maxOuvintes": 50,
+      "horas": 5
+    },
+    {
+      "id": "P50H6",
+      "maxOuvintes": 50,
+      "horas": 6
+    },
+    {
+      "id": "P50H7",
+      "maxOuvintes": 50,
+      "horas": 7
+    },
+    {
+      "id": "P50H8",
+      "maxOuvintes": 50,
+      "horas": 8
+    },
+    {
+      "id": "P60H1",
+      "maxOuvintes": 60,
+      "horas": 1
+    },
+    {
+      "id": "P60H2",
+      "maxOuvintes": 60,
+      "horas": 2
+    },
+    {
+      "id": "P60H3",
+      "maxOuvintes": 60,
+      "horas": 3
+    },
+    {
+      "id": "P60H4",
+      "maxOuvintes": 60,
+      "horas": 4
+    },
+    {
+      "id": "P60H5",
+      "maxOuvintes": 60,
+      "horas": 5
+    },
+    {
+      "id": "P60H6",
+      "maxOuvintes": 60,
+      "horas": 6
+    },
+    {
+      "id": "P60H7",
+      "maxOuvintes": 60,
+      "horas": 7
+    },
+    {
+      "id": "P60H8",
+      "maxOuvintes": 60,
+      "horas": 8
+    },
+    {
+      "id": "P70H1",
+      "maxOuvintes": 70,
+      "horas": 1
+    },
+    {
+      "id": "P70H2",
+      "maxOuvintes": 70,
+      "horas": 2
+    },
+    {
+      "id": "P70H3",
+      "maxOuvintes": 70,
+      "horas": 3
+    },
+    {
+      "id": "P70H4",
+      "maxOuvintes": 70,
+      "horas": 4
+    },
+    {
+      "id": "P70H5",
+      "maxOuvintes": 70,
+      "horas": 5
+    },
+    {
+      "id": "P70H6",
+      "maxOuvintes": 70,
+      "horas": 6
+    },
+    {
+      "id": "P70H7",
+      "maxOuvintes": 70,
+      "horas": 7
+    },
+    {
+      "id": "P70H8",
+      "maxOuvintes": 70,
+      "horas": 8
+    },
+    {
+      "id": "P80H1",
+      "maxOuvintes": 80,
+      "horas": 1
+    },
+    {
+      "id": "P80H2",
+      "maxOuvintes": 80,
+      "horas": 2
+    },
+    {
+      "id": "P80H3",
+      "maxOuvintes": 80,
+      "horas": 3
+    },
+    {
+      "id": "P80H4",
+      "maxOuvintes": 80,
+      "horas": 4
+    },
+    {
+      "id": "P80H5",
+      "maxOuvintes": 80,
+      "horas": 5
+    },
+    {
+      "id": "P80H6",
+      "maxOuvintes": 80,
+      "horas": 6
+    },
+    {
+      "id": "P80H7",
+      "maxOuvintes": 80,
+      "horas": 7
+    },
+    {
+      "id": "P80H8",
+      "maxOuvintes": 80,
+      "horas": 8
+    },
+    {
+      "id": "P90H1",
+      "maxOuvintes": 90,
+      "horas": 1
+    },
+    {
+      "id": "P90H2",
+      "maxOuvintes": 90,
+      "horas": 2
+    },
+    {
+      "id": "P90H3",
+      "maxOuvintes": 90,
+      "horas": 3
+    },
+    {
+      "id": "P90H4",
+      "maxOuvintes": 90,
+      "horas": 4
+    },
+    {
+      "id": "P90H5",
+      "maxOuvintes": 90,
+      "horas": 5
+    },
+    {
+      "id": "P90H6",
+      "maxOuvintes": 90,
+      "horas": 6
+    },
+    {
+      "id": "P90H7",
+      "maxOuvintes": 90,
+      "horas": 7
+    },
+    {
+      "id": "P90H8",
+      "maxOuvintes": 90,
+      "horas": 8
+    },
+    {
+      "id": "P100H1",
+      "maxOuvintes": 100,
+      "horas": 1
+    },
+    {
+      "id": "P100H2",
+      "maxOuvintes": 100,
+      "horas": 2
+    },
+    {
+      "id": "P100H3",
+      "maxOuvintes": 100,
+      "horas": 3
+    },
+    {
+      "id": "P100H4",
+      "maxOuvintes": 100,
+      "horas": 4
+    },
+    {
+      "id": "P100H5",
+      "maxOuvintes": 100,
+      "horas": 5
+    },
+    {
+      "id": "P100H6",
+      "maxOuvintes": 100,
+      "horas": 6
+    },
+    {
+      "id": "P100H7",
+      "maxOuvintes": 100,
+      "horas": 7
+    },
+    {
+      "id": "P100H8",
+      "maxOuvintes": 100,
+      "horas": 8
+    }
+  ],
+  "eventos": [
+    {
+      "senha": "EVENTO-TESTE",
+      "nome": "Evento de teste Audesc",
+      "sala": "audesc-evento-teste",
+      "audiodescritor": "Equipe Audesc",
+      "pacote": "P20H2",
+      "inicio": "2026-01-01T00:00:00-03:00",
+      "fim": "2027-01-01T00:00:00-03:00",
+      "status": "ativo"
+    }
+  ]
+}
