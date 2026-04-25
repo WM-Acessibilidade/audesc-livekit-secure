@@ -1,7 +1,7 @@
 {
   "name": "audesc-livekit-server-controlado",
-  "version": "1.0.1",
-  "description": "Backend controlado para geração de tokens LiveKit do Audesc.",
+  "version": "1.0.3",
+  "description": "Backend controlado para Audesc: transmissor com senha e ouvintes sem senha por código de sala.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
