@@ -1,40 +1,22 @@
-# Audesc LiveKit Server Controlado v4
+# Audesc LiveKit Server com Google Sheets
 
-Esta versão mantém a expiração real por uso e altera a regra de acesso:
+Backend com controle por planilha Google.
 
-- audiodescritor(a) / transmissor: precisa informar a senha do evento;
-- ouvintes: entram sem senha, usando apenas o código da sala ou link da sala.
+Regra:
+- transmissor usa senha;
+- ouvinte entra sem senha, apenas com sala/link;
+- primeira entrada do transmissor grava `iniciadoEm` e `salaAtivada`;
+- duração conta pela coluna `horas`.
 
-## Como funciona
+Variáveis no Render:
+- LIVEKIT_API_KEY
+- LIVEKIT_API_SECRET
+- GOOGLE_SHEET_ID
+- GOOGLE_CLIENT_EMAIL
+- GOOGLE_PRIVATE_KEY
+- SHEET_NAME = eventos
+- ADMIN_PASSWORD
 
-1. O transmissor entra com uma senha válida.
-2. Se a senha for de uso único, o backend registra o primeiro uso e a sala escolhida.
-3. A senha passa a valer pelo tempo do pacote. Exemplo: P20H2 = 2 horas.
-4. Ouvintes entram pelo código da sala sem precisar digitar senha.
-5. O backend reconhece a sala usada pelo transmissor e libera os ouvintes enquanto a senha/sessão estiver válida.
-
-## Arquivos
-
-Substitua no repositório do backend:
-
-- server.js
-- package.json
-- permissions.json
-- README.md
-
-Depois faça Manual Deploy no Render.
-
-## Configuração relevante
-
-No permissions.json:
-
-```json
-"permitirSemSenha": false,
-"permitirOuvinteSemSenha": true
-```
-
-Assim, o transmissor precisa de senha, mas o ouvinte não.
-
-## Observação sobre persistência
-
-No Render Free, o arquivo `usage-state.json`, que registra o primeiro uso das senhas, pode ser perdido em reinícios ou redeploys. Para uso comercial definitivo, o ideal será migrar esse controle para banco de dados, Google Sheets, Supabase ou outro armazenamento persistente.
+A planilha deve ter uma aba chamada `eventos`.
+Importe `modelo_eventos_google_sheets.csv` para criar as colunas e 200 senhas demo.
+Compartilhe a planilha com o e-mail da conta de serviço (`GOOGLE_CLIENT_EMAIL`) como Editor.

@@ -1,7 +1,6 @@
 {
-  "name": "audesc-livekit-server-controlado",
-  "version": "1.0.3",
-  "description": "Backend controlado para Audesc: transmissor com senha e ouvintes sem senha por código de sala.",
+  "name": "audesc-livekit-server-sheets",
+  "version": "1.0.0",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -9,6 +8,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "googleapis": "^140.0.1",
     "livekit-server-sdk": "^2.13.3"
   },
   "engines": {
