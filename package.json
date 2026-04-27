@@ -1,6 +1,6 @@
 {
   "name": "audesc-livekit-server-sheets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -13,5 +13,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "description": "Backend Audesc com Google Sheets e assunção administrativa de transmissão."
 }

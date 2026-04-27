@@ -20,3 +20,18 @@ Variáveis no Render:
 A planilha deve ter uma aba chamada `eventos`.
 Importe `modelo_eventos_google_sheets.csv` para criar as colunas e 200 senhas demo.
 Compartilhe a planilha com o e-mail da conta de serviço (`GOOGLE_CLIENT_EMAIL`) como Editor.
+
+
+## v2 - Assumir transmissão como administrador
+
+Quando o transmissor usa a senha definida em `ADMIN_PASSWORD`, o backend tenta remover da sala o participante que estiver publicando áudio, permitindo intervenção administrativa.
+
+Variável adicional no Render:
+
+LIVEKIT_URL
+
+Use, por exemplo:
+
+wss://audesc-live-dh77x30o.livekit.cloud
+
+Depois de adicionar essa variável, faça Manual Deploy no Render.

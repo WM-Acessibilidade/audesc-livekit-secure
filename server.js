@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { google } = require('googleapis');
-const { AccessToken } = require('livekit-server-sdk');
+const { AccessToken, RoomServiceClient } = require('livekit-server-sdk');
 
 const app = express();
 app.use(cors());
@@ -10,6 +10,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 const LIVEKIT_API_KEY = process.env.LIVEKIT_API_KEY;
 const LIVEKIT_API_SECRET = process.env.LIVEKIT_API_SECRET;
+const LIVEKIT_URL = process.env.LIVEKIT_URL;
 const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID;
 const GOOGLE_CLIENT_EMAIL = process.env.GOOGLE_CLIENT_EMAIL;
 const GOOGLE_PRIVATE_KEY = (process.env.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n');
@@ -92,6 +93,33 @@ function ttlFor(ev){
   return Math.min(ttl, 8 * 60 * 60);
 }
 
+
+async function removerTransmissoresAtivos(room) {
+  if (!LIVEKIT_URL || !LIVEKIT_API_KEY || !LIVEKIT_API_SECRET || !room) {
+    return { removidos: 0, motivo: 'LIVEKIT_URL não configurado ou sala ausente.' };
+  }
+  try {
+    const svc = new RoomServiceClient(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET);
+    const participantes = await svc.listParticipants(room);
+    let removidos = 0;
+    for (const p of participantes) {
+      const tracks = p.tracks || [];
+      const publicaAudio = tracks.some(t => {
+        const type = String(t.type || t.source || '').toLowerCase();
+        return type.includes('audio') || type.includes('microphone');
+      });
+      if (publicaAudio) {
+        await svc.removeParticipant(room, p.identity);
+        removidos++;
+      }
+    }
+    return { removidos };
+  } catch (e) {
+    console.error('Falha ao remover transmissor ativo:', e);
+    return { removidos: 0, erro: e.message || 'Falha ao remover transmissor ativo.' };
+  }
+}
+
 async function token(room, identity, role, ttl){
   const at = new AccessToken(LIVEKIT_API_KEY, LIVEKIT_API_SECRET, {identity, ttl});
   at.addGrant({room, roomJoin:true, canSubscribe:true, canPublish: role === 'transmitter', canPublishData:true});
@@ -107,7 +135,11 @@ app.get('/token', async (req, res) => {
 
     if(password && password === ADMIN_PASSWORD){
       const room = requestedRoom || 'audesc-admin';
-      return res.json({token: await token(room, identity, role, 8*60*60), room, identity, role, acesso:'admin'});
+      let adminOverride = null;
+      if (role === 'transmitter') {
+        adminOverride = await removerTransmissoresAtivos(room);
+      }
+      return res.json({token: await token(room, identity, role, 8*60*60), room, identity, role, acesso:'admin', adminOverride});
     }
 
     const events = await readEvents();
@@ -155,6 +187,6 @@ app.get('/token', async (req, res) => {
   }
 });
 
-app.get('/health', (req,res)=>res.json({ok:true, service:'audesc-livekit-server-sheets', version:'sheets-v1'}));
+app.get('/health', (req,res)=>res.json({ok:true, service:'audesc-livekit-server-sheets', version:'sheets-v2-admin-assumir'}));
 
 app.listen(PORT, () => console.log(`Audesc Sheets backend rodando na porta ${PORT}`));
